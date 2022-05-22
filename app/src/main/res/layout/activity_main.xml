@@ -6,13 +6,156 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="152dp"
-        android:layout_height="15dp"
-        android:text="Hello World!"
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="40dp"
+        android:stretchColumns="2"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="0dp">
 
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:text="Kertas"
+            android:textColor="#FF9800"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="50dp"
+            android:gravity="center"
+            android:text="Gunting"
+            android:textColor="#4CAF50"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Batu"
+            android:textColor="#673AB7"
+            android:textSize="30dp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
+
+        <TableRow android:layout_height="317dp">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="Pemain 1"
+                    android:textColor="#17CAE1" />
+
+                <ImageView
+                    android:id="@+id/batu1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="3dip"
+                    android:src="@drawable/batu"
+                    tools:layout_editor_absoluteY="118dp" />
+
+                <ImageView
+                    android:id="@+id/gunting1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dip"
+                    android:src="@drawable/gunting"
+                    tools:layout_editor_absoluteY="118dp" />
+
+                <ImageView
+                    android:id="@+id/kertas1"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dip"
+                    android:src="@drawable/kertas"
+                    tools:layout_editor_absoluteY="118dp" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hasil"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="120dp"
+                    android:gravity="center"
+                    android:text="VS"
+                    android:textColor="#F62415"
+                    android:textSize="40dp" />
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="20dp"
+                    android:gravity="center"
+                    android:text="COM"
+                    android:textColor="#17CAE1" />
+
+                <ImageView
+                    android:id="@+id/batu2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="3dip"
+                    android:src="@drawable/batu"
+                    tools:layout_editor_absoluteY="118dp" />
+
+                <ImageView
+                    android:id="@+id/gunting2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dip"
+                    android:src="@drawable/gunting"
+                    tools:layout_editor_absoluteY="118dp" />
+
+                <ImageView
+                    android:id="@+id/kertas2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dip"
+                    android:src="@drawable/kertas"
+                    tools:layout_editor_absoluteY="118dp" />
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+
+    <ImageView
+        android:id="@+id/refresh"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:padding="3dip"
+        android:src="@drawable/refresh"
+        app:layout_constraintBottom_toBottomOf="@+id/tableLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tableLayout"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
