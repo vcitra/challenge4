@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var hasilSuit: TextView
     lateinit var ulang : ImageView
     var pilihSuit = 0
-    var pilihCom = (0 until 4).random()
+    var pilihCom = (1 until 4).random()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,77 +39,102 @@ class MainActivity : AppCompatActivity() {
             selectSuit(batuPemain, pilihan = 1)
             batuPemain.setBackgroundColor(Color.parseColor("#FF709EB3"))
         }
+
         guntingPemain.setOnClickListener{
             Log.d(MainActivity::class.java.simpleName,  "Pemain 1 memilih gunting")
             selectSuit(batuPemain, pilihan = 2)
             guntingPemain.setBackgroundColor(Color.parseColor("#FF709EB3"))
         }
+
         kertasPemain.setOnClickListener{
             Log.d(MainActivity::class.java.simpleName,  "Pemain 1 memilih kertas")
             selectSuit(batuPemain, pilihan = 3)
             kertasPemain.setBackgroundColor(Color.parseColor("#FF709EB3"))
         }
+
         ulang.setOnClickListener{
             hapusPemain()
             hapusCom()
-
+            reset()
         }
 
     }
+
+    // mengembalikan hasil suit textview ke awal
+    private fun reset(){
+        hasilSuit.setTextColor(Color.parseColor("#F62415"))
+        hasilSuit.setText("VS")
+        hasilSuit.setBackgroundColor(0)
+        hasilSuit.setTextSize(40F)
+    }
+
+    // menampilkan pilihan hasil acak com
     private fun com(){
         if(pilihSuit>0) {
-            if (pilihCom == 1) {
+            if (pilihCom == 1){
                 Log.d(MainActivity::class.java.simpleName, "Com memilih batu")
                 batuCom.setBackgroundColor(Color.parseColor("#FF709EB3"))
             }
-            if (pilihCom == 2) {
+            if (pilihCom == 2){
                 Log.d(MainActivity::class.java.simpleName, "Com memilih gunting")
                 guntingCom.setBackgroundColor(Color.parseColor("#FF709EB3"))
             }
-            if (pilihCom == 3) {
+            if (pilihCom == 3){
                 Log.d(MainActivity::class.java.simpleName, "Com memilih kertas")
                 kertasCom.setBackgroundColor(Color.parseColor("#FF709EB3"))
             }
         }
     }
+
     private fun selectSuit(view: ImageView, pilihan:Int){
         pilihSuit = pilihan
+        hapusCom()
         com()
-        Suit()
+        suit()
         hapusPemain()
     }
 
-    private fun Suit(){
+    // algoritma suit
+    private fun suit(){
         if((pilihSuit == 1 && pilihCom == 1)||(pilihSuit==2 && pilihCom==2) || (pilihSuit == 3 && pilihCom == 3)){
             Log.d(MainActivity::class.java.simpleName, "DRAW")
             hasilSuit.setBackgroundColor(Color.parseColor("#FF3F51B5"))
             hasilSuit.setTextColor(Color.parseColor("#FFE9EFE9"))
+            hasilSuit.setTextSize(40F)
             hasilSuit.setText("DRAW")
         }
         if((pilihSuit == 1 && pilihCom == 2)||(pilihSuit==2 && pilihCom==3) || (pilihSuit == 3 && pilihCom == 1)){
             Log.d(MainActivity::class.java.simpleName, "Pemain 1 Menang !!!")
-            hasilSuit.setBackgroundColor(Color.parseColor("#FF4CAF50"))
-            hasilSuit.setTextColor(Color.parseColor("#FFE9EFE9"))
+            ubahText()
             hasilSuit.setText("Pemain 1 MENANG")
         }
         if((pilihSuit == 1 && pilihCom == 3)||(pilihSuit==2 && pilihCom==1) || (pilihSuit == 3 && pilihCom == 2)){
             Log.d(MainActivity::class.java.simpleName, "Pemain 2 Menang !!!")
-            hasilSuit.setBackgroundColor(Color.parseColor("#FF4CAF50"))
-            hasilSuit.setTextColor(Color.parseColor("#FFE9EFE9"))
+            ubahText()
             hasilSuit.setText("Pemain 2 MENANG")
         }
     }
+
+    private fun ubahText(){
+        hasilSuit.setBackgroundColor(Color.parseColor("#FF4CAF50"))
+        hasilSuit.setTextColor(Color.parseColor("#FFE9EFE9"))
+        hasilSuit.setTextSize(15F)
+    }
+
     private fun hapusPemain(){
         batuPemain.setBackgroundColor(0)
         guntingPemain.setBackgroundColor(0)
         kertasPemain.setBackgroundColor(0)
     }
+
     private fun hapusCom(){
         batuCom.setBackgroundColor(0)
         guntingCom.setBackgroundColor(0)
         kertasCom.setBackgroundColor(0)
+        pilihCom = (1 until 4).random()
     }
 }
+
 
 
 
