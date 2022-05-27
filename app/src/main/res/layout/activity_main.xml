@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<!--    untuk view sudah rapi, bahkan sudah pakai tablelayout dan cardview
+        mungkin tambahan, pastikan kalau untuk ukuran text, pakai SP bukan DP
+                        -->
     <TableLayout
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
