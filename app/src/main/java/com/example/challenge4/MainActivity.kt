@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-         batuPemain = findViewById<ImageView>(R.id.batu1)
+         batuPemain = findViewById<ImageView>(R.id.batu1) // code <ImageView> bisa di hapus, karna di atas sudah di defenisikan typenya  lateinit var batuPemain : ImageView
          guntingPemain = findViewById<ImageView>(R.id.gunting1)
          kertasPemain = findViewById<ImageView>(R.id.kertas1)
          batuCom = findViewById<ImageView>(R.id.batu2)
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
 
         batuPemain.setOnClickListener{
-            Log.d(MainActivity::class.java.simpleName,  "Pemain 1 memilih batu")
+            Log.d(MainActivity::class.java.simpleName,  "Pemain 1 memilih batu") // +1 untuk logging, selalu biasakan logging agar lebih mudah debug
             selectSuit(batuPemain, pilihan = 1)
             batuPemain.setBackgroundColor(Color.parseColor("#FF709EB3"))
         }
@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity() {
         if(pilihSuit>0) {
             if (pilihCom == 1){
                 Log.d(MainActivity::class.java.simpleName, "Com memilih batu")
-                batuCom.setBackgroundColor(Color.parseColor("#FF709EB3"))
+                batuCom.setBackgroundColor(Color.parseColor("#FF709EB3")) // +1 untuk logic random comnya, juga uda ada sistem pilih dan ganti background
             }
             if (pilihCom == 2){
                 Log.d(MainActivity::class.java.simpleName, "Com memilih gunting")
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun selectSuit(view: ImageView, pilihan:Int){
+    private fun selectSuit(view: ImageView, pilihan:Int){ // variable view ga pernah di pake, bisa di hapus
         pilihSuit = pilihan
         hapusCom()
         com()
@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun ubahText(){
+    private fun ubahText(){ // pembagian code sudah baik, tiap method hanya punya 1 fungsi. good job
         hasilSuit.setBackgroundColor(Color.parseColor("#FF4CAF50"))
         hasilSuit.setTextColor(Color.parseColor("#FFE9EFE9"))
         hasilSuit.setTextSize(15F)
